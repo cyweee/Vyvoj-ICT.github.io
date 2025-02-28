@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: #333;
+    color: white;
+    padding: 20px;
+    font-size: 24px;
+}
+
+section {
+    margin: 20px;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.event, .card {
+    background: #ddd;
+    margin: 10px auto;
+    padding: 15px;
+    border-radius: 5px;
+    width: 80%;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.arrow {
+    transition: transform 0.3s;
+}
+
+.event.active .arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown {
+    display: none;
+    background: #eee;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.event.active .dropdown {
+    display: block;
+}
