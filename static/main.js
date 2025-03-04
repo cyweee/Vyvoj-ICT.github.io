@@ -1,9 +1,15 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const events = document.querySelectorAll(".event");
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".event").forEach(event => {
+        event.addEventListener("click", () => {
+            let dropdown = event.querySelector(".dropdown");
+            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+        });
+    });
 
-    events.forEach(event => {
-        event.addEventListener("click", function () {
-            this.classList.toggle("active");
+    document.querySelectorAll(".card").forEach(card => {
+        card.addEventListener("click", () => {
+            let content = card.querySelector(".card-content");
+            content.style.display = content.style.display === "block" ? "none" : "block";
         });
     });
 });

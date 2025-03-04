@@ -38,19 +38,11 @@ section {
     transition: transform 0.3s;
 }
 
-.event.active .arrow {
-    transform: rotate(180deg);
-}
-
-.dropdown {
+.dropdown, .card-content {
     display: none;
     background: #eee;
     padding: 10px;
     margin-top: 5px;
     border-radius: 5px;
     text-align: left;
-}
-
-.event.active .dropdown {
-    display: block;
 }
