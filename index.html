@@ -4,46 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vývoj ICT</title>
+ <!-- Стили AOS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+<!-- Скрипт AOS -->
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+
     <link rel="stylesheet" href="static/main.css">
     <script defer src="static/main.js"></script>
 </head>
 <body>
+    <!-- Анимированный фон -->
+    <div id="animated-bg"></div>
+    <div class="floating-particles"></div>
+
     <header>
-        <h1>Vývoj ICT: Od abakusu k umělé inteligenci</h1>
+        <h1 data-aos="fade-down">Vývoj ICT</h1>
+        <p data-aos="fade-up" data-aos-delay="300"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam rhoncus auctor ligula at consequat. Sed erat orci, egestas at tortor et, accumsan ultricies odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc auctor nec metus nec tincidunt. Cras nec elementum lorem. Donec a enim a felis lacinia efficitur pulvinar vitae tellus. Nulla facilisi. Duis volutpat massa at ultrices dictum. Quisque posuere, augue sit amet vestibulum condimentum, mauris mi vulputate ex, eu volutpat nulla magna ac ex. Aliquam ut laoreet lorem, sed malesuada felis.
+
+            Sed dignissim, odio placerat pellentesque molestie, urna tortor porta purus, eu pulvinar augue odio vel diam. Nam vitae ullamcorper elit, sit amet faucibus urna. Cras non varius mi. Curabitur mollis nunc eget mauris pharetra viverra. Sed euismod ante quam, in maximus nisi accumsan a. Vestibulum fringilla ligula a lectus tempor ultricies. Fusce id hendrerit dolor, quis mollis leo.
+            
+            In a sagittis neque. Proin nec rhoncus magna, at facilisis lacus. Suspendisse potenti. Integer venenatis elit ut magna ultricies, et imperdiet mauris fringilla. Proin ultricies scelerisque nisl, in hendrerit arcu malesuada porttitor. Duis quis pellentesque mauris. Duis id massa laoreet, ullamcorper sapien a, aliquam odio. Aliquam venenatis pellentesque ullamcorper.  </p>
     </header>
-    
+
     <section id="timeline">
-        <h2>Historický vývoj</h2>
-        <div class="event">📜 Abakus – první výpočetní nástroj <span class="arrow">▼</span>
-            <div class="dropdown">Abakus byl jedním z prvních nástrojů pro výpočty a používal se již ve starověku.</div>
+        <div class="card" data-aos="fade-right"> 
+            <h3>📜 Abakus – první výpočetní nástroj</h3>
+            <p>Abakus byl jedním z prvních nástrojů pro výpočty a používal se již ve starověku.</p>
         </div>
-        <div class="event">⚙️ První mechanické počítače <span class="arrow">▼</span>
-            <div class="dropdown">Mechanické počítače, jako například stroj Charlese Babbage, byly předchůdci moderních počítačů.</div>
+        <div class="card" data-aos="fade-left"> 
+            <h3>⚙️ První mechanické počítače</h3>
+            <p>Mechanické počítače, jako například stroj Charlese Babbage, byly předchůdci moderních počítačů.</p>
         </div>
-        <div class="event">💻 Vývoj osobních počítačů <span class="arrow">▼</span>
-            <div class="dropdown">Osobní počítače se staly běžnou součástí domácností a pracovního prostředí v 80. letech.</div>
+        <div class="card" data-aos="fade-right"> 
+            <h3>💻 První programovací jazyky</h3>
+            <p>Fortran, COBOL a další jazyky položily základ modernímu programování.</p>
         </div>
-        <div class="event">🌐 Vznik internetu <span class="arrow">▼</span>
-            <div class="dropdown">Internet změnil způsob, jakým komunikujeme a přistupujeme k informacím.</div>
-        </div>
-    </section>
-    
-    <section id="personalities">
-        <h2>Důležité osobnosti</h2>
-        <div class="card">👨‍🔬 Charles Babbage – "Otec počítače" <span class="arrow">▼</span>
-            <div class="card-content">Charles Babbage byl britský matematik, filozof a vynálezce, který navrhl první mechanický počítač.</div>
-        </div>
-        <div class="card">🍏 Steve Jobs – Revoluce PC <span class="arrow">▼</span>
-            <div class="card-content">Steve Jobs byl spoluzakladatel společnosti Apple a průkopník osobních počítačů a mobilních zařízení.</div>
-        </div>
-        <div class="card">💼 Bill Gates – Windows a Microsoft <span class="arrow">▼</span>
-            <div class="card-content">Bill Gates je spoluzakladatel společnosti Microsoft a klíčová postava v rozvoji softwarového průmyslu.</div>
-        </div>
-    </section>
-    
-    <section id="future">
-        <h2>Současnost a budoucnost</h2>
-        <p>Kvantové počítače, umělá inteligence, virtuální realita...</p>
     </section>
 </body>
 </html>

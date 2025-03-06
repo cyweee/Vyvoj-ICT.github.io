@@ -1,48 +1,99 @@
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
-    text-align: center;
-    background-color: #f4f4f4;
-}
-
-header {
-    background: #333;
+    font-family: Arial, sans-serif;
     color: white;
-    padding: 20px;
-    font-size: 24px;
-}
-
-section {
-    margin: 20px;
-    padding: 20px;
-    background: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
-
-.event, .card {
-    background: #ddd;
-    margin: 10px auto;
-    padding: 15px;
-    border-radius: 5px;
-    width: 80%;
+    background: black;
+    overflow-x: hidden;
     position: relative;
-    cursor: pointer;
+}
+
+/* Анимированный темный фон */
+#animated-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: linear-gradient(-45deg,#232f52, #193268, #155a6b, #0ac2c2);
+    background-size: 300% 300%;
+    animation: gradientAnimation 8s ease infinite;
+    z-index: -1;
+}
+
+/* Анимация плавного переливания градиента */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+/* Заголовок */
+header {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+header h1 {
+    font-size: 48px;
+    margin: 0;
+}
+
+header p {
+    font-size: 20px;
+    opacity: 0.8;
+}
+
+/* Карточки */
+#timeline {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    padding: 50px 20px;
 }
 
-.arrow {
-    transition: transform 0.3s;
+/* --- ОБЩИЙ СТИЛЬ ДЛЯ КАРТОЧЕК --- */
+.card {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.1); /* Полупрозрачный белый фон */
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px;
+    width: 300px; /* Можно изменить на желаемую ширину */
+    height: auto; /* Дает карточкам вместительность */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    backdrop-filter: blur(10px); /* Плавное размытие фона за карточкой */
+    opacity: 0;
 }
 
-.dropdown, .card-content {
-    display: none;
-    background: #eee;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 5px;
-    text-align: left;
+/* --- ЭФФЕКТ НАВЕДЕНИЯ НА КАРТОЧКУ --- */
+.card:hover {
+    transform: translateY(-10px); /* Легкое поднятие карточки */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* --- ТЕКСТ И СОДЕРЖИМОЕ ВНУТРИ КАРТОЧКИ --- */
+.card h3 {
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    color: #d1c9f3; /* Светлый цвет для текста */
+    font-weight: bold;
+}
+
+.card p {
+    font-size: 1.1em;
+    color: rgba(255, 255, 255, 0.8); /* Легкий белый цвет для текста */
+    line-height: 1.6;
+}
+
+/* --- АНМИРОВАНИЕ КАРТОЧЕК --- */
+.card.animate-in {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+/* --- АНИМАЦИЯ ВЫЕЗДА КАРТОЧЕК --- */
+@keyframes slideIn {
+    0% { transform: translateX(50%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
 }
