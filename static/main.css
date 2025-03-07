@@ -25,7 +25,23 @@ body {
     100% { background-position: 0% 50%; }
 }
 
+.kitty-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* Котики на фоне */
+}
 
+.kitty {
+    position: absolute;
+    width: 50px;
+    height: auto;
+    opacity: 0.2;
+    pointer-events: none;
+    transition: transform 3s ;
+}
 /* Заголовок */
 header {
     text-align: center;
@@ -35,6 +51,11 @@ header {
 header h1 {
     font-size: 48px;
     margin: 0;
+}
+
+h1{
+    font-size: 3.5rem; /* Делаем заголовок больше */
+    margin-bottom: 30px; /* Даем ему больше места */
 }
 
 header p {
@@ -51,7 +72,7 @@ header p {
 
 /* --- ОПИСАНИЕ ПРОЕКТА --- */
 .project-description {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: #cccccc;
     max-width: 60%;
     margin: 0 auto;
@@ -60,12 +81,16 @@ header p {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     margin-top: 90px;
-    margin-bottom: 40px; /* Уменьшаем расстояние перед карточками */
+    margin-bottom: 50px; /* Уменьшаем расстояние перед карточками */
 }
 
 /* --- КАРТОЧКИ --- */
 .card {
-    margin-bottom: 40px; /* Чуть уменьшаем отступ между карточками */
+    font-size: 1.4rem; /* Увеличиваем текст внутри карточек */
+    padding: 30px; /* Делаем карточки больше и просторнее */
+    width: 90%; /* Расширяем карточки */
+    max-width: 800px; /* Ограничиваем максимальную ширину */
+    margin-bottom: 40px; /* Делаем больше отступ между карточками */
 }
 
 
@@ -117,4 +142,10 @@ header p {
 }
 .card:nth-child(odd):hover {
     transform: translateX(-10px);
+}
+
+/* --- ОБЩИЙ КОНТЕЙНЕР --- */
+.container {
+    max-width: 85%; /* Делаем сайт шире */
+    margin: 0 auto; /* Выравниваем по центру */
 }
