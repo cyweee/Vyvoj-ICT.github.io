@@ -42,6 +42,35 @@ header p {
     opacity: 0.8;
 }
 
+/* --- ОБЕРТКА ДЛЯ ЗАГОЛОВКА И ОПИСАНИЯ --- */
+.header-container {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 100px; /* Уменьшаем отступ вниз */
+}
+
+/* --- ОПИСАНИЕ ПРОЕКТА --- */
+.project-description {
+    font-size: 1.2rem;
+    color: #cccccc;
+    max-width: 60%;
+    margin: 0 auto;
+    line-height: 1.6;
+    padding: 15px 25px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin-top: 90px;
+    margin-bottom: 40px; /* Уменьшаем расстояние перед карточками */
+}
+
+/* --- КАРТОЧКИ --- */
+.card {
+    margin-bottom: 40px; /* Чуть уменьшаем отступ между карточками */
+}
+
+
+
+
 /* Карточки */
 #timeline {
     display: flex;
@@ -52,48 +81,40 @@ header p {
 
 /* --- ОБЩИЙ СТИЛЬ ДЛЯ КАРТОЧЕК --- */
 .card {
+    margin-bottom: 50px; /* Добавляем дополнительный отступ между карточками */
     position: relative;
-    background-color: rgba(255, 255, 255, 0.1); /* Полупрозрачный белый фон */
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     padding: 20px;
-    margin: 20px;
-    width: 300px; /* Можно изменить на желаемую ширину */
-    height: auto; /* Дает карточкам вместительность */
+    margin: 40px 5%;
+    width: 40%;
+    height: auto;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden;
-    backdrop-filter: blur(10px); /* Плавное размытие фона за карточкой */
     opacity: 0;
+    transition: opacity 1s, transform 1s ease-in-out;
 }
 
-/* --- ЭФФЕКТ НАВЕДЕНИЯ НА КАРТОЧКУ --- */
-.card:hover {
-    transform: translateY(-10px); /* Легкое поднятие карточки */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+/* --- ЧЕРЕДОВАНИЕ КАРТОЧЕК: ЛЕВО-ПРАВО --- */
+.card:nth-child(even) {
+    transform: translateX(50px);
+    margin-left: auto;
 }
 
-/* --- ТЕКСТ И СОДЕРЖИМОЕ ВНУТРИ КАРТОЧКИ --- */
-.card h3 {
-    font-size: 1.4em;
-    margin-bottom: 15px;
-    color: #d1c9f3; /* Светлый цвет для текста */
-    font-weight: bold;
+.card:nth-child(odd) {
+    transform: translateX(-50px);
+    margin-right: auto;
 }
 
-.card p {
-    font-size: 1.1em;
-    color: rgba(255, 255, 255, 0.8); /* Легкий белый цвет для текста */
-    line-height: 1.6;
-}
-
-/* --- АНМИРОВАНИЕ КАРТОЧЕК --- */
-.card.animate-in {
+/* --- КОГДА КАРТОЧКА ПОЯВЛЯЕТСЯ --- */
+.card.visible {
     opacity: 1;
-    transition: opacity 1s ease-in-out;
+    transform: translateX(0);
 }
 
-/* --- АНИМАЦИЯ ВЫЕЗДА КАРТОЧЕК --- */
-@keyframes slideIn {
-    0% { transform: translateX(50%); opacity: 0; }
-    100% { transform: translateX(0); opacity: 1; }
+/* --- ЭФФЕКТ ОТДВИЖЕНИЯ ПРИ НАВЕДЕНИИ --- */
+.card:hover {
+    transform: translateX(10px);
+}
+.card:nth-child(odd):hover {
+    transform: translateX(-10px);
 }
