@@ -6,6 +6,22 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+document.addEventListener("DOMContentLoaded", function () {
+    const sectionTitle = document.querySelector(".section-title");
+
+    function revealTitle() {
+        const rect = sectionTitle.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.8) {
+            sectionTitle.classList.add("show");
+            window.removeEventListener("scroll", revealTitle); // Чтобы сработало 1 раз
+        }
+    }
+
+    window.addEventListener("scroll", revealTitle);
+    revealTitle(); // Проверяем при загрузке
+});
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
     // Наблюдатель для анимации появления карточек
@@ -24,17 +40,5 @@ document.addEventListener("DOMContentLoaded", () => {
     // Выбираем карточки и следим за ними
     const cards = document.querySelectorAll(".card");
     cards.forEach(card => observer.observe(card));
-
-    // Эффект отталкивания карточек от курсора
-    cards.forEach(card => {
-        card.addEventListener("mousemove", (event) => {
-            const rect = card.getBoundingClientRect();
-            const offsetX = (event.clientX - rect.left - rect.width / 2) * 0.05;
-            card.style.transform = `translateX(${offsetX}px)`;
-        });
-
-        card.addEventListener("mouseleave", () => {
-            card.style.transform = "";
-        });
-    });
 });
+

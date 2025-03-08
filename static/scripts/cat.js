@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
             kitty.style.transform = `translate(${dx}px, ${dy}px)`;
         });
 
-        setTimeout(animateKitties, 2000); // Повторяем каждые 2 секунды
+        setTimeout(animateKitties, 500); // Повторяем каждые 0.5 секунды
     }
 
     animateKitties(); // Запускаем анимацию
