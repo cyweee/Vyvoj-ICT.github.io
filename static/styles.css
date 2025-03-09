@@ -1,6 +1,5 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
     color: white;
     background: black;
     overflow-x: hidden;
@@ -235,6 +234,14 @@ header p {
     height: 100px;
     object-fit: cover;
     border-radius: 50%;
+    margin: 10px 0;
+}
+
+.card-timeline{
+    width: 550px;
+    height: 150px;
+    object-fit: contain;
+    display: flex;
     margin: 10px 0;
 }
 
