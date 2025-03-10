@@ -187,13 +187,13 @@ header p {
     transform: translateX(0);
 }
 
-/* Применяем разные анимации шатания для четных и нечетных карточек */
+/* шатания для четных и нечетных карточек */
 .card:nth-child(even).visible {
-    animation: shake-left 7s ease-in-out infinite; /* Карточки с четным индексом */
+    animation: shake-left 6s linear infinite alternate;
 }
 
 .card:nth-child(odd).visible {
-    animation: shake-right 7s ease-in-out infinite; /* Карточки с нечетным индексом */
+    animation: shake-right 6s linear infinite alternate;
 }
 
 /* --- ЧЕРЕДОВАНИЕ КАРТОЧЕК: ЛЕВО-ПРАВО --- */
