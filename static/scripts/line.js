@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Находим элементы, после которых будет вставлена линия
     const timelineSection = document.getElementById("timeline");
-    const duleziteOsobnostiSection = document.getElementById("dulezite-osobnosti");
+    const funfactsSection = document.getElementById("fun-facts");
 
     // Вставляем линию после секции timeline, если она найдена
     if (timelineSection) {
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Вставляем линию после секции Důležité osobnosti, если она найдена
-    if (duleziteOsobnostiSection) {
-        duleziteOsobnostiSection.insertAdjacentElement("afterend", divider.cloneNode(true));
+    if (funfactsSection) {
+        funfactsSection.insertAdjacentElement("afterend", divider.cloneNode(true));
     }
 });

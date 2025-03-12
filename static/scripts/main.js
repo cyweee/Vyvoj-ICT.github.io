@@ -1,44 +1,40 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // Инициализация AOS
     AOS.init({
-        duration: 3000, // Длительность анимации (1 секунда)
-        once: false      // Анимация проигрывается только один раз
+        duration: 3000,
+        once: false
     });
-});
 
-
-document.addEventListener("DOMContentLoaded", function () {
+    // Плавное появление заголовка
     const sectionTitle = document.querySelector(".section-title");
 
     function revealTitle() {
         const rect = sectionTitle.getBoundingClientRect();
         if (rect.top < window.innerHeight * 0.8) {
             sectionTitle.classList.add("show");
-            window.removeEventListener("scroll", revealTitle); // Чтобы сработало 1 раз
+            window.removeEventListener("scroll", revealTitle);
         }
     }
 
     window.addEventListener("scroll", revealTitle);
-    revealTitle(); // Проверяем при загрузке
-});
+    revealTitle(); // при загрузке
 
-
-
-document.addEventListener("DOMContentLoaded", () => {
-    // Наблюдатель для анимации появления карточек
+    // Анимация появления карточек с задержкой
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-            } else {
-                entry.target.classList.remove("visible");
+                const card = entry.target;
+                const index = Array.from(document.querySelectorAll(".card")).indexOf(card);
+                // Добавляем задержку
+                card.style.transitionDelay = `${index * 0.1}s`;
+                card.classList.add("visible");
             }
         });
     }, {
         threshold: 0.5,
     });
 
-    // Выбираем карточки и следим за ними
-    const cards = document.querySelectorAll(".card");
-    cards.forEach(card => observer.observe(card));
+    document.querySelectorAll(".card").forEach(card => {
+        observer.observe(card);
+    });
 });
-

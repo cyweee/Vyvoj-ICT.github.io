@@ -141,7 +141,8 @@ header p {
     height: auto;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     opacity: 0;
-    transition: opacity 1s, transform 1s ease-in-out;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+       transform: scale(0.95); /* Чуть меньше размер */
 }
 
 /* Анимация шатания карточек после появления */
@@ -181,12 +182,6 @@ header p {
     }
 }
 
-/* Когда карточка появляется */
-.card.visible {
-    opacity: 1;
-    transform: translateX(0);
-}
-
 /* шатания для четных и нечетных карточек */
 .card:nth-child(even).visible {
     animation: shake-left 6s linear infinite alternate;
@@ -205,15 +200,6 @@ header p {
 .card:nth-child(odd) {
     transform: translateX(-50px);
     margin-right: auto;
-}
-
-/* --- ЭФФЕКТ ОТДВИЖЕНИЯ ПРИ НАВЕДЕНИИ --- */
-.card:hover {
-    transform: translateY(-10px);
-}
-
-.card:nth-child(odd):hover {
-    transform: translateY(10px);
 }
 
 /* --- ОБЩИЙ КОНТЕЙНЕР --- */
@@ -251,7 +237,7 @@ header p {
     gap: 20px;
     align-items: center;
 }
-/* Карточки для важнейших личностей */
+/* Карточки для в разделa "Důležité osobnosti" */
 .card {
     margin-bottom: 40px;
     background-color: rgba(255, 255, 255, 0.1);
@@ -271,13 +257,4 @@ header p {
 .card.visible {
     opacity: 1;
     transform: translateX(0);
-}
-
-/* Анимации карточек */
-.card:nth-child(even) {
-    transform: translateX(50px);
-}
-
-.card:nth-child(odd) {
-    transform: translateX(-50px);
 }
