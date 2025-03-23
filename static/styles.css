@@ -258,3 +258,11 @@ header p {
     opacity: 1;
     transform: translateX(0);
 }
+
+.project-end-description{
+
+    text-align: center;
+    font-size: 75px;
+    margin-top: 300px;
+    margin-bottom: 300px;
+}
