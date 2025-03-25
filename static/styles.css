@@ -259,10 +259,17 @@ header p {
     transform: translateX(0);
 }
 
-.project-end-description{
-
+.project-end-description {
     text-align: center;
     font-size: 75px;
     margin-top: 300px;
-    margin-bottom: 300px;
+    margin-bottom: 50px;
+}
+
+.denisz_king {
+    width: 550px;
+    height: 450px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto; 
 }
