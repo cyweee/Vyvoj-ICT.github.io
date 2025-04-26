@@ -139,13 +139,23 @@ header p {
     margin: 40px 5%;
     width: 40%;
     height: auto;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: opacity 0.8s ease, transform 0.8s ease, box-shadow 0.8s ease;
     opacity: 0;
-    transition: opacity 0.6s ease, transform 0.6s ease;
-       transform: scale(0.95); /* Чуть меньше размер */
+} 
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* Анимация шатания карточек после появления */
+/* Анимация шатания влево */
 @keyframes shake-left {
     0% {
         transform: translateX(0);
@@ -161,24 +171,6 @@ header p {
     }
     100% {
         transform: translateX(5px);
-    }
-}
-
-@keyframes shake-right {
-    0% {
-        transform: translateX(0);
-    }
-    25% {
-        transform: translateX(5px);
-    }
-    50% {
-        transform: translateX(-5px);
-    }
-    75% {
-        transform: translateX(5px);
-    }
-    100% {
-        transform: translateX(-5px);
     }
 }
 
@@ -256,7 +248,8 @@ header p {
 /* Когда карточка появляется */
 .card.visible {
     opacity: 1;
-    transform: translateX(0);
+    transform: scale(1);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
 }
 
 .project-end-description {
@@ -273,3 +266,11 @@ header p {
     display: block;
     margin: 0 auto; 
 }
+
+footer {
+    margin-top: auto; 
+    height: 60px;
+    color: #fff;
+    text-align: center;
+    line-height: 60px; 
+  }

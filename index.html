@@ -16,6 +16,7 @@
     <script defer src="static/scripts/main.js"></script>
     <script defer src="static/scripts/cat.js"></script>
     <script defer src="static/scripts/line.js"></script>
+    <script defer src="static/scripts/scroll.js"></script>
 </head>
 <body>
 
@@ -40,19 +41,19 @@
     
 
     <section id="timeline">
-        <div class="card" data-aos="fade-right"> 
+        <div class="card" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="300">
             <h3>📜 Abakus – první výpočetní nástroj</h3>
             <p>Abakus je považován za vůbec první nástroj, který lidé používali k výpočtům. Vznikl před tisíci lety v Číně, Mezopotámii i dalších částech světa. I když vypadal jednoduše – rám s tyčkami a posuvnými kuličkami – byl to velmi praktický a přesný nástroj. Pomáhal sčítat, odčítat, násobit i dělit. Byl to důležitý krok k moderním počítačům, protože ukázal, že stroje mohou lidem pomáhat počítat.</p>
             <img src="static/img/abakus.jpg" alt="abakis" class="card-timeline">
         </div>
-        <div class="card" data-aos="fade-left"> 
+        <div class="card" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="300">
             <h3>⚙️ První mechanické počítače</h3>
             <p>První mechanické počítače vznikly v 17. a 19. století. Jedním z prvních byl Pascalin, který vymyslel Blaise Pascal pro svého otce – daňového úředníka. Později přišel Charles Babbage se svým návrhem „analytického stroje“, který měl fungovat jako moderní počítač – uměl by počítat podle programu. I když jeho stroj nikdy nebyl dokončen, jeho nápady silně ovlivnily budoucnost informatiky.</p>
             <img src="static/img/1280px-Babbage_Difference_Engine.jpg" alt="pc" class="card-timeline">
             <p>💡 Zajímavost: První program pro tento stroj napsala Ada Lovelace – matematička, kterou dnes mnozí považují za vůbec první programátorku na světě.</p>
             <img src="static/img/Ada_Lovelace_portrait.jpg" alt="first_programmer" class="card-timeline">   
         </div>
-        <div class="card" data-aos="fade-right"> 
+        <div class="card" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="300"> 
             <h3>💻 První programovací jazyky</h3>
             <p>Na začátku počítače rozuměly jen jednoduchým číslům. Programátoři museli psát složité binární kódy. Postupně ale vznikly první programovací jazyky jako Fortran nebo Assembly, které umožnily psát programy srozumitelnějším způsobem. Díky tomu mohli programovat i lidé, kteří nebyli experty na hardware. Tyto jazyky umožnily rozvoj softwaru a posunuly vývoj technologií kupředu.</p>
             <img src="static/img/Assembly_language_debugging_under_DOS.jpg" alt="assembly" class="card-timeline">
@@ -74,7 +75,7 @@
         </div>
         <div class="card" data-aos="fade-right">
             <h3>⌨️ Bill Gates</h3>
-            <img src="static/img/Bill_Gates_2013.jpg" alt="windows_is_shit" class="card-image">
+            <img src="static/img/HUILO-EBANOE.png" alt="windows_is_shit" class="card-image">
             <p>Bill Gates je známý jako spoluzakladatel Microsoftu, ale hlavně za to, že přinesl počítače do domácností. Pomohl vytvořit operační systém Windows, který zpřístupnil technologii milionům lidí. Kromě toho je i významný filantrop – po ukončení své kariéry se věnuje charitě a řešení globálních problémů.</p>
         </div>
         <div class="card" data-aos="fade-right">
@@ -89,7 +90,8 @@
         </div>
         <section id="fun-facts">
             <h2>Zajímavosti</h2>
-            <div class="card">
+          
+            <div class="card" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="300">
               <h3>🕸️ Tim Berners-Lee</h3>
               <img src="static/img/Tim_Berners-Lee.jpg" alt="www" class="card-image">
               <ul>
@@ -98,8 +100,8 @@
                 <li>Bojuje za otevřený a svobodný internet – je zakladatelem iniciativy „Solid“ a „Web Foundation“.</li>
               </ul>
             </div>
- 
-            <div class="card">
+          
+            <div class="card" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="400">
               <h3>🐧 Linus Torvalds</h3>
               <img src="static/img/Linus_Torvalds.jpeg" alt="i_use_arch_btw" class="card-image">
               <ul>
@@ -108,18 +110,18 @@
                 <li>Nemá rád řízení auta — raději pracuje z domova v klidném prostředí a vyhýbá se rušným silnicím a dopravnímu stresu.</li>
               </ul>
             </div>
-         <div class="card">
+          
+            <div class="card" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="500">
               <h3>⌨️ Bill Gates</h3>
-              <img src="static/img/Bill_Gates_2013.jpg" alt="windows_is_shit" class="card-image">
+              <img src="static/img/HUILO-EBANOE.png" alt="windows_is_shit" class="card-image">
               <ul>
                 <li>Čte přibližně 50 knih ročně a pravidelně sdílí své oblíbené tituly online.</li>
                 <li>Jeho nadace financovala vývoj vakcín, nových toalet pro rozvojové země a bojuje proti malárii.</li>
                 <li>Je fanouškem klasických videoher — například <i>Minesweeper</i>, kde měl rekordy na firemních počítačích Microsoftu.</li>
               </ul>
             </div>
- 
-
-            <div class="card">
+          
+            <div class="card" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="600">
               <h3>🖥️ John von Neumann</h3>
               <img src="static/img/John-von-Neumann.jpg" alt="pc_architectire" class="card-image">
               <ul>
@@ -128,17 +130,19 @@
                 <li>Vymyslel koncept <strong>samoreprodukujících strojů</strong>, což ovlivnilo i vývoj v oblasti genetiky a umělé inteligence.</li>
               </ul>
             </div>
- 
-            <div class="card">
-                <h3>🧠 Dennis Ritchie</h3>
-                <img src="static/img/Dennis_Ritchie.jpg" alt="c_programmer_equeal_gigachad" class="card-image">
-                <ul>
-                  <li>Vytvořil jazyk C a spoluvytvářel Unix — ale většina lidí zná spíše Stevea Jobse nebo Billa Gatese.</li>
-                  <li>Když zemřel, média mu věnovala méně pozornosti, protože to bylo krátce po smrti Steva Jobse.</li>
-                  <li>Bez jeho práce by dnes neexistovaly systémy jako Windows, macOS, Linux, Android a mnoho dalších.</li>
-                </ul>
-              </div>
-    </section>    
+          
+            <div class="card" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="700">
+              <h3>🧠 Dennis Ritchie</h3>
+              <img src="static/img/Dennis_Ritchie.jpg" alt="c_programmer_equeal_gigachad" class="card-image">
+              <ul>
+                <li>Vytvořil jazyk C a spoluvytvářel Unix — ale většina lidí zná spíše Stevea Jobse nebo Billa Gatese.</li>
+                <li>Když zemřel, média mu věnovala méně pozornosti, protože to bylo krátce po smrti Steva Jobse.</li>
+                <li>Bez jeho práce by dnes neexistovaly systémy jako Windows, macOS, Linux, Android a mnoho dalších.</li>
+              </ul>
+            </div>
+          
+          </section>
+            
     <section id="budoucnost">
         <h2 class="section-title" data-aos="fade-up">Současnost a budoucnost</h2>
 
@@ -164,6 +168,10 @@
 
 <p class="project-end-description" data-aos="fade-down" data-aos-delay="300"> Děkujeme za pozornost!!!</p>
 <img src="static/img/pidor.jpg" alt="GOAT" class="denisz_king">
+
+<footer>
+  <p>© 2025 Vývoj ICT — Kyrylo Buryk, Denisz Sztojka, IT1</p>
+</footer>
 
 </body>
 </html>

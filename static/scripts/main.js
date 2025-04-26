@@ -19,22 +19,24 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("scroll", revealTitle);
     revealTitle(); // при загрузке
 
-    // Анимация появления карточек с задержкой
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const card = entry.target;
-                const index = Array.from(document.querySelectorAll(".card")).indexOf(card);
-                // Добавляем задержку
-                card.style.transitionDelay = `${index * 0.1}s`;
-                card.classList.add("visible");
-            }
+    document.addEventListener("DOMContentLoaded", () => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const card = entry.target;
+                    const index = Array.from(document.querySelectorAll(".card")).indexOf(card);
+                    
+                    // Добавляем класс с задержкой
+                    card.classList.add("visible");
+                    card.style.animationDelay = `${index * 0.1}s`;
+                }
+            });
+        }, {
+            threshold: 0.5,  // карточка появляется, когда минимум 50% её видимой части на экране
         });
-    }, {
-        threshold: 0.5,
+    
+        document.querySelectorAll(".card").forEach(card => {
+            observer.observe(card);
+        });
     });
-
-    document.querySelectorAll(".card").forEach(card => {
-        observer.observe(card);
-    });
-});
+})
