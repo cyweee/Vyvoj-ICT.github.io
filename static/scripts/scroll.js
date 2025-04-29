@@ -2,12 +2,12 @@ let scrollInterval;
 let isScrolling = false;
 
 // старт автоскролла
-function startAutoScroll(speed = 1) {
+function startAutoScroll(speed = 1.8) {
     if (isScrolling) return; 
 
     isScrolling = true;
-    const scrollStep = 1; // плавность 
-    const intervalTime = 15; 
+    const scrollStep = 2; // шаг больше => быстрее прокрутка
+    const intervalTime = 12; // чуть быстрее обновления
 
     scrollInterval = setInterval(() => {
         window.scrollBy(0, scrollStep * speed);
@@ -28,11 +28,11 @@ function stopAutoScroll() {
 // Отслеживаем нажатие пробела
 window.addEventListener("keydown", (e) => {
     if (e.code === "Space") {
-        e.preventDefault(); // блокает стандартное поведение пробела
+        e.preventDefault();
         if (isScrolling) {
             stopAutoScroll();
         } else {
-            startAutoScroll(2.5);
+            startAutoScroll(2); // ручной запуск чуть быстрее
         }
     }
 });
@@ -40,6 +40,6 @@ window.addEventListener("keydown", (e) => {
 // автоскролл через 2 секунды после загрузки
 window.addEventListener("load", () => {
     setTimeout(() => {
-        startAutoScroll(1);
+        startAutoScroll(1.8); // автозапуск чуть медленнее
     }, 2000);
 });
