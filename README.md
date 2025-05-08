@@ -90,10 +90,12 @@ V tématu Současnost a budoucnost se probírají otázky současné doby a budo
 │   ├── /img           # složka s obrázkama
 │   └── style.css      # styly na web
 │   └── /scripts            # JavaScript soubory
-│       └── cat.js
+│       └── matrix.js
+        └── glitch.js
         └── line.js
         └── main.js
         └── scroll.js
+    ├── README.md     # Technická dokumentace
 ├── /zadani
     ├── /Projekt_Vývoj_IT.pdf # samotný úkol
 ├── .gitignore         # soubory nebo složky které Git nebude sledovat
