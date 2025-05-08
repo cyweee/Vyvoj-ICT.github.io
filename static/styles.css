@@ -558,11 +558,20 @@ header p {
 }
 
 
-
 footer {
-    margin-top: auto;
-    height: 60px;
-    color: #fff;
+    background: linear-gradient(to right, #001a00, #021302, #001a00);
+    color: #00ff88;
+    padding: 20px 0;
     text-align: center;
-    line-height: 60px;
+    border-top: 1px solid #00ff44;
+    box-shadow: 0 -5px 15px rgba(0, 255, 100, 0.2);
+    margin-top: 50px;
+}
+
+footer p {
+    margin: 0;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 16px;
+    text-shadow: 0 0 5px rgba(0, 255, 100, 0.5);
+    letter-spacing: 1px;
 }
