@@ -4,7 +4,7 @@ body {
     background: black;
     overflow-x: hidden;
     position: relative;
-    font-family: 'Courier New', monospace;
+    font-family: 'Share Tech Mono', monospace;
     min-height: 100vh;
 }
 
@@ -62,25 +62,6 @@ canvas {
 }
 
 
-/* Остальные стили из вашего кода */
-.kitty-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
-}
-
-.kitty {
-    position: absolute;
-    width: 50px;
-    height: auto;
-    opacity: 0.4;
-    pointer-events: none;
-    transition: transform 3s;
-}
-
 header {
     text-align: center;
     padding: 100px 20px;
@@ -109,24 +90,41 @@ header p {
 
 .project-description {
     font-size: 1.4rem;
-    color: #cccccc;
+    color: #c0ffc0; /* Зеленоватый текст как в терминале */
     max-width: 60%;
-    margin: 0 auto;
-    line-height: 1.6;
-    padding: 15px 25px;
-    background: rgba(255, 255, 255, 0.1);
+    margin: 90px auto 50px;
+    line-height: 1.7;
+    padding: 30px;
+    background: rgba(10, 30, 10, 0.7); /* Темно-зеленый полупрозрачный фон */
     border-radius: 10px;
-    margin-top: 90px;
-    margin-bottom: 50px;
     position: relative;
+    border: 1px solid rgba(0, 255, 100, 0.3);
+    box-shadow: 
+        0 0 25px rgba(0, 255, 100, 0.3),
+        inset 0 0 15px rgba(0, 255, 100, 0.1);
+    backdrop-filter: blur(5px);
+    font-family: 'Courier New', monospace;
+    text-shadow: 0 0 5px rgba(0, 255, 100, 0.3);
+    overflow: hidden;
 }
 
+/* Эффект мерцающего градиента */
 @keyframes gradient-move {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% { 
+        background-position: 0% 50%;
+        opacity: 0.7;
+    }
+    50% {
+        background-position: 100% 50%;
+        opacity: 0.9;
+    }
+    100% { 
+        background-position: 0% 50%;
+        opacity: 0.7;
+    }
 }
 
+/* Фоновый градиент с эффектом "цифрового дождя" */
 .project-description::before {
     content: "";
     position: absolute;
@@ -136,12 +134,53 @@ header p {
     height: 100%;
     z-index: -1;
     border-radius: 10px;
-    background: linear-gradient(45deg, rgba(37, 65, 126, 1), rgb(58, 97, 129), rgba(37, 65, 126, 1));
+    background: linear-gradient(
+        135deg,
+        rgba(0, 30, 0, 0.8),
+        rgba(0, 60, 0, 0.6),
+        rgba(0, 30, 0, 0.8)
+    );
     background-size: 200% 200%;
-    animation: gradient-move 6s infinite alternate ease-in-out;
-    opacity: 0.5;
+    animation: gradient-move 8s infinite alternate ease-in-out;
 }
 
+/* Эффект цифрового шума */
+.project-description::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+}
+
+/* Стиль для ссылок внутри описания */
+.project-description a {
+    color: #00ff88;
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(0, 255, 100, 0.5);
+    transition: all 0.3s ease;
+}
+
+.project-description a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(0, 255, 100, 0.7);
+    border-bottom-color: rgba(0, 255, 100, 0.9);
+}
+
+/* Анимация "печатания" текста (опционально) */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+.project-description p {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 3.5s steps(40, end);
+}
 .section-title {
     font-size: 2.5rem;
     text-align: center;
@@ -162,20 +201,43 @@ header p {
     padding: 50px 20px;
 }
 
+/* Основной стиль карточек */
 .card {
     margin-bottom: 50px;
     position: relative;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(10, 30, 10, 0.85); /* Темно-зеленый фон */
     border-radius: 12px;
-    padding: 20px;
+    padding: 25px;
     margin: 40px 5%;
     width: 40%;
     height: auto;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    transition: opacity 0.8s ease, transform 0.8s ease, box-shadow 0.8s ease;
+    box-shadow: 
+        0 0 15px rgba(0, 255, 100, 0.3),
+        0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: all 0.6s ease;
     opacity: 0;
+    border: 1px solid rgba(0, 255, 100, 0.2);
+    backdrop-filter: blur(5px);
+    overflow: hidden;
 }
 
+/* Эффект цифрового кода на фоне */
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(rgba(0, 255, 100, 0.05) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(0, 255, 100, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* Анимации появления */
 @keyframes fadeInUp {
     0% {
         opacity: 0;
@@ -187,14 +249,30 @@ header p {
     }
 }
 
+/* Анимации покачивания */
+@keyframes shake-left {
+    0%, 100% { transform: translateX(50px) rotate(0.5deg); }
+    50% { transform: translateX(45px) rotate(-0.5deg); }
+}
+
+@keyframes shake-right {
+    0%, 100% { transform: translateX(-50px) rotate(-0.5deg); }
+    50% { transform: translateX(-45px) rotate(0.5deg); }
+}
+
 .card:nth-child(even).visible {
-    animation: shake-left 6s linear infinite alternate;
+    animation: 
+        fadeInUp 0.8s ease forwards,
+        shake-left 6s linear infinite alternate 0.8s;
 }
 
 .card:nth-child(odd).visible {
-    animation: shake-right 6s linear infinite alternate;
+    animation: 
+        fadeInUp 0.8s ease forwards,
+        shake-right 6s linear infinite alternate 0.8s;
 }
 
+/* Позиционирование четных/нечетных */
 .card:nth-child(even) {
     transform: translateX(50px);
     margin-left: auto;
@@ -205,45 +283,84 @@ header p {
     margin-right: auto;
 }
 
+/* Стили для видимых карточек */
+.card.visible {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+    box-shadow: 
+        0 0 25px rgba(0, 255, 100, 0.5),
+        0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Стили для изображений */
+.card-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 15px auto;
+    display: block;
+    border: 2px solid rgba(0, 255, 100, 0.5);
+    box-shadow: 0 0 15px rgba(0, 255, 100, 0.3);
+    transition: all 0.4s ease;
+}
+
+.card-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(0, 255, 100, 0.6);
+}
+
+.card-timeline {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    border-radius: 8px;
+    margin: 20px auto; /* Изменили на auto для горизонтального центрирования */
+    border: 1px solid rgba(0, 255, 100, 0.3);
+    box-shadow: 0 0 20px rgba(0, 255, 100, 0.2);
+    display: block; /* Важно для изображений */
+    margin-left: auto; /* Центрирование по горизонтали */
+    margin-right: auto; /* Центрирование по горизонтали */
+}
+
+/* Текст в карточках */
+.card h2 {
+    color: #00ff88;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(0, 255, 100, 0.3);
+    border-bottom: 1px solid rgba(0, 255, 100, 0.3);
+    padding-bottom: 10px;
+}
+
+.card p {
+    color: #c0ffc0;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Контейнеры */
 .container {
     max-width: 85%;
     margin: 0 auto;
 }
 
-#dulezite-osobnosti {
-    padding: 50px 20px;
-    text-align: center;
-}
-
-.card-image {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin: 10px 0;
-}
-
-.card-timeline {
-    width: 550px;
-    height: 150px;
-    object-fit: contain;
-    display: flex;
-    margin: 10px 0;
-}
-
 .cards-container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
     align-items: center;
 }
 
-.card.visible {
-    opacity: 1;
-    transform: scale(1);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+#dulezite-osobnosti {
+    padding: 50px 20px;
+    text-align: center;
+    background: rgba(0, 20, 0, 0.3);
+    border-radius: 15px;
+    margin: 40px 0;
+    border: 1px solid rgba(0, 255, 100, 0.2);
 }
-
 .project-end-description {
     text-align: center;
     font-size: 75px;
