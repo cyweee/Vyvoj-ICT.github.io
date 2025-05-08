@@ -1,45 +1,108 @@
-let scrollInterval;
-let isScrolling = false;
+document.addEventListener('DOMContentLoaded', () => {
+    // Инициализация системы
+    let isEnabled = false;
+    const cardSelectors = ['.card', '.card-pers'];
+    let navIndicator = null;
 
-// старт автоскролла
-function startAutoScroll(speed = 1.8) {
-    if (isScrolling) return; 
+    // Создаем индикатор навигации
+    function createNavIndicator() {
+        const indicator = document.createElement('div');
+        indicator.className = 'nav-indicator';
+        indicator.innerHTML = '⯆ <span>SPACE</span>:  Další kartička';
+        document.body.appendChild(indicator);
+        return indicator;
+    }
 
-    isScrolling = true;
-    const scrollStep = 2; // шаг больше => быстрее прокрутка
-    const intervalTime = 12; // чуть быстрее обновления
+    // Активация системы
+    const enableSystem = () => {
+        isEnabled = true;
+        navIndicator = createNavIndicator();
+        setTimeout(() => {
+            navIndicator.style.opacity = '1';
+        }, 50);
+        window.removeEventListener('scroll', enableSystem);
+    };
 
-    scrollInterval = setInterval(() => {
-        window.scrollBy(0, scrollStep * speed);
+    setTimeout(enableSystem, 3000);
+    window.addEventListener('scroll', enableSystem, { once: true });
 
-        // Остановка на самом низу
-        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-            stopAutoScroll();
+    // Плавный скролл к элементу
+    function smoothScrollTo(target) {
+        const element = typeof target === 'string' 
+            ? document.querySelector(target) 
+            : target;
+        
+        if (!element) return;
+        
+        const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+        const scrollPosition = element.offsetTop - Math.min(headerHeight, 100);
+        
+        window.scrollTo({
+            top: scrollPosition,
+            behavior: 'smooth'
+        });
+
+        // Подсветка текущей карточки
+        document.querySelectorAll('.card-highlight').forEach(el => {
+            el.classList.remove('card-highlight');
+        });
+        element.classList.add('card-highlight');
+    }
+
+    // Получаем все карточки
+    function getAllCards() {
+        return Array.from(document.querySelectorAll(cardSelectors.join(',')))
+            .sort((a, b) => a.offsetTop - b.offsetTop);
+    }
+
+    // Навигация по карточкам
+    function scrollToNextCard() {
+        if (!isEnabled) return;
+        
+        const cards = getAllCards();
+        if (cards.length === 0) return;
+        
+        const currentScroll = window.scrollY + (window.innerHeight / 3);
+        let nextCard = null;
+
+        for (const card of cards) {
+            if (card.offsetTop > currentScroll) {
+                nextCard = card;
+                break;
+            }
         }
-    }, intervalTime);
-}
 
-// остановка автоскролла
-function stopAutoScroll() {
-    clearInterval(scrollInterval);
-    isScrolling = false;
-}
+        if (!nextCard && cards.length > 0) {
+            nextCard = cards[0];
+        }
 
-// Отслеживаем нажатие пробела
-window.addEventListener("keydown", (e) => {
-    if (e.code === "Space") {
-        e.preventDefault();
-        if (isScrolling) {
-            stopAutoScroll();
-        } else {
-            startAutoScroll(2); // ручной запуск чуть быстрее
+        if (nextCard) {
+            smoothScrollTo(nextCard);
+            
+            // Анимация индикатора при переключении
+            if (navIndicator) {
+                navIndicator.style.transform = 'translateY(-5px)';
+                setTimeout(() => {
+                    navIndicator.style.transform = 'translateY(0)';
+                }, 200);
+            }
         }
     }
-});
 
-// автоскролл через 2 секунды после загрузки
-window.addEventListener("load", () => {
-    setTimeout(() => {
-        startAutoScroll(1.8); // автозапуск чуть медленнее
-    }, 2000);
+    // Обработчик клавиш
+    document.addEventListener('keydown', (e) => {
+        if (e.code === 'Space') {
+            e.preventDefault();
+            scrollToNextCard();
+        }
+    });
+
+    // Инициализация AOS
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-out-back'
+        });
+    }
 });
