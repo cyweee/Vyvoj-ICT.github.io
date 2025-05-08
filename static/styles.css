@@ -4,33 +4,72 @@ body {
     background: black;
     overflow-x: hidden;
     position: relative;
+    font-family: 'Courier New', monospace;
+    min-height: 100vh;
 }
 
-/* Анимированный темный фон */
-#animated-bg {
+/* Анимированный матричный фон */
+#matrix-bg {
     position: fixed;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
-    background: linear-gradient(-45deg,#232f52, #193268, #155a6b, #0ac2c2);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(-45deg, #000000, #010b00, #002200, #004d00, #00ff00);
     background-size: 300% 300%;
     animation: gradientAnimation 8s ease infinite;
-    z-index: -1;
+    z-index: -2;
+    overflow: hidden;
 }
 
-/* Анимация плавного переливания градиента */
+/* Анимация градиента */
 @keyframes gradientAnimation {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
+.matrix-rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+    display: none !important;
+}
+
+.matrix-digit {
+    position: absolute;
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    font-weight: bold;
+    text-shadow: 0 0 8px rgba(0, 255, 0, 0.9);
+    will-change: transform;
+    white-space: nowrap;
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+}
+
+
+/* Остальные стили из вашего кода */
 .kitty-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: -1; /* Котики на фоне */
+    z-index: -1;
 }
 
 .kitty {
@@ -39,10 +78,9 @@ body {
     height: auto;
     opacity: 0.4;
     pointer-events: none;
-    transition: transform 3s ;
+    transition: transform 3s;
 }
 
-/* Заголовок */
 header {
     text-align: center;
     padding: 100px 20px;
@@ -53,9 +91,9 @@ header h1 {
     margin: 0;
 }
 
-h1{
-    font-size: 3.5rem; /* Делаем заголовок больше */
-    margin-bottom: 30px; /* Даем ему больше места */
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 30px;
 }
 
 header p {
@@ -63,14 +101,12 @@ header p {
     opacity: 0.8;
 }
 
-/* --- ОБЕРТКА ДЛЯ ЗАГОЛОВКА И ОПИСАНИЯ --- */
 .header-container {
     text-align: center;
     margin-top: 50px;
-    margin-bottom: 100px; /* Уменьшаем отступ вниз */
+    margin-bottom: 100px;
 }
 
-/* --- ОПИСАНИЕ ПРОЕКТА --- */
 .project-description {
     font-size: 1.4rem;
     color: #cccccc;
@@ -81,7 +117,8 @@ header p {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     margin-top: 90px;
-    margin-bottom: 50px; /* Уменьшаем расстояние перед карточками */
+    margin-bottom: 50px;
+    position: relative;
 }
 
 @keyframes gradient-move {
@@ -113,15 +150,11 @@ header p {
     transition: opacity 1s ease-out, filter 1s ease-out, transform 1s ease-out;
 }
 
-/* Когда появляется в зоне видимости */
 .section-title.show {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* --- КАРТОЧКИ --- */
-
-/* Карточки */
 #timeline {
     display: flex;
     flex-direction: column;
@@ -129,9 +162,8 @@ header p {
     padding: 50px 20px;
 }
 
-/* --- ОБЩИЙ СТИЛЬ ДЛЯ КАРТОЧЕК --- */
 .card {
-    margin-bottom: 50px; /* Добавляем дополнительный отступ между карточками */
+    margin-bottom: 50px;
     position: relative;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 12px;
@@ -142,7 +174,7 @@ header p {
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     transition: opacity 0.8s ease, transform 0.8s ease, box-shadow 0.8s ease;
     opacity: 0;
-} 
+}
 
 @keyframes fadeInUp {
     0% {
@@ -155,26 +187,6 @@ header p {
     }
 }
 
-/* Анимация шатания влево */
-@keyframes shake-left {
-    0% {
-        transform: translateX(0);
-    }
-    25% {
-        transform: translateX(-5px);
-    }
-    50% {
-        transform: translateX(5px);
-    }
-    75% {
-        transform: translateX(-5px);
-    }
-    100% {
-        transform: translateX(5px);
-    }
-}
-
-/* шатания для четных и нечетных карточек */
 .card:nth-child(even).visible {
     animation: shake-left 6s linear infinite alternate;
 }
@@ -183,7 +195,6 @@ header p {
     animation: shake-right 6s linear infinite alternate;
 }
 
-/* --- ЧЕРЕДОВАНИЕ КАРТОЧЕК: ЛЕВО-ПРАВО --- */
 .card:nth-child(even) {
     transform: translateX(50px);
     margin-left: auto;
@@ -194,19 +205,16 @@ header p {
     margin-right: auto;
 }
 
-/* --- ОБЩИЙ КОНТЕЙНЕР --- */
 .container {
-    max-width: 85%; /* Делаем сайт шире */
-    margin: 0 auto; /* Выравниваем по центру */
+    max-width: 85%;
+    margin: 0 auto;
 }
 
-/* Стиль для новых карточек в разделе "Důležité osobnosti" */
 #dulezite-osobnosti {
     padding: 50px 20px;
     text-align: center;
 }
 
-/* Стиль для изображений в карточках */
 .card-image {
     width: 100px;
     height: 100px;
@@ -215,7 +223,7 @@ header p {
     margin: 10px 0;
 }
 
-.card-timeline{
+.card-timeline {
     width: 550px;
     height: 150px;
     object-fit: contain;
@@ -229,23 +237,7 @@ header p {
     gap: 20px;
     align-items: center;
 }
-/* Карточки для в разделa "Důležité osobnosti" */
-.card {
-    margin-bottom: 40px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 20px;
-    width: 40%;
-    height: auto;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    transition: opacity 1s, transform 1s ease-in-out;
-    display: inline-block;
-    margin: 20px;
-    vertical-align: top;
-}
 
-/* Когда карточка появляется */
 .card.visible {
     opacity: 1;
     transform: scale(1);
@@ -264,13 +256,13 @@ header p {
     height: 450px;
     object-fit: contain;
     display: block;
-    margin: 0 auto; 
+    margin: 0 auto;
 }
 
 footer {
-    margin-top: auto; 
+    margin-top: auto;
     height: 60px;
     color: #fff;
     text-align: center;
-    line-height: 60px; 
-  }
+    line-height: 60px;
+}
