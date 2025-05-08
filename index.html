@@ -4,27 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vývoj ICT</title>
-<!-- fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Allerta&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-<!--other-->
-<link rel="icon" href="static/img/availability-svgrepo-com.svg" type="image/svg+xml">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Allerta&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Иконка -->
+    <link rel="icon" href="static/img/availability-svgrepo-com.svg" type="image/svg+xml">
+    
+    <!-- Библиотеки -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Собственные стили и скрипты -->
     <link rel="stylesheet" href="static/styles.css">
     <script defer src="static/scripts/main.js"></script>
     <script defer src="static/scripts/matrix.js"></script> 
     <script defer src="static/scripts/line.js"></script>
     <script defer src="static/scripts/scroll.js"></script>
 </head>
+
 <body>
-
-
-    <!-- Анимированный фон -->
+    <!-- ==================== АНИМИРОВАННЫЙ ФОН ==================== -->
     <div id="animated-bg"></div>
     <div class="floating-particles"></div>
 
+    <!-- ==================== ЗАГОЛОВОК ==================== -->
     <header class="header-container">
         <h1 class="project-title" data-aos="fade-down">Vývoj ICT – Od Abaku k umělé inteligenci</h1>
         <p class="project-description" data-aos="fade-up" data-aos-delay="300">
@@ -35,143 +41,178 @@
         </p>
     </header>
     
+    <!-- ==================== ИСТОРИЧЕСКИЙ РАЗДЕЛ ==================== -->
     <section id="historicky-vyvoj">
         <h2 class="section-title">Historický vývoj</h2>
     </section>
     
-
+    <!-- Карточки временной шкалы -->
     <section id="timeline">
+        <!-- Карточка 1:-->
         <div class="card" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="300">
             <h3>📜 Abakus – první výpočetní nástroj</h3>
-            <p>Abakus je považován za vůbec první nástroj, který lidé používali k výpočtům. Vznikl před tisíci lety v Číně, Mezopotámii i dalších částech světa. I když vypadal jednoduše – rám s tyčkami a posuvnými kuličkami – byl to velmi praktický a přesný nástroj. Pomáhal sčítat, odčítat, násobit i dělit. Byl to důležitý krok k moderním počítačům, protože ukázal, že stroje mohou lidem pomáhat počítat.</p>
-            <img src="static/img/abakus.jpg" alt="abakis" class="card-timeline">
+            <p>Abakus je jeden z nejstarších výpočetních nástrojů, vznikl před tisíci lety v Číně a Mezopotámii. Přestože byl jednoduchý – rám s tyčkami a kuličkami – umožňoval přesně sčítat, odčítat, násobit i dělit. Byl důležitým předchůdcem moderních počítačů, protože ukázal, že stroje mohou pomáhat lidem počítat.</p>
+            <img src="static/img/abakus.jpg" alt="abakus" class="card-timeline">
         </div>
+        
+        <!-- Карточка 2:-->
         <div class="card" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="300">
             <h3>⚙️ První mechanické počítače</h3>
-            <p>První mechanické počítače vznikly v 17. a 19. století. Jedním z prvních byl Pascalin, který vymyslel Blaise Pascal pro svého otce – daňového úředníka. Později přišel Charles Babbage se svým návrhem „analytického stroje“, který měl fungovat jako moderní počítač – uměl by počítat podle programu. I když jeho stroj nikdy nebyl dokončen, jeho nápady silně ovlivnily budoucnost informatiky.</p>
+            <p>První mechanické počítače vznikly v 17.–19. století. Pascalin vytvořil Blaise Pascal pro svého otce, později Charles Babbage navrhl „analytický stroj“, který měl počítat podle programu. Jeho myšlenky ovlivnily vývoj informatiky.</p>
             <img src="static/img/1280px-Babbage_Difference_Engine.jpg" alt="pc" class="card-timeline">
-            <p>💡 Zajímavost: První program pro tento stroj napsala Ada Lovelace – matematička, kterou dnes mnozí považují za vůbec první programátorku na světě.</p>
+            <p>💡 Zajímavost: rvní program pro tento stroj napsala Ada Lovelace – matematička, kterou dnes mnozí považují za vůbec první programátorku na světě.</p>
             <img src="static/img/Ada_Lovelace_portrait.jpg" alt="first_programmer" class="card-timeline">   
         </div>
+        
+        <!-- Карточка 3:-->
         <div class="card" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="300"> 
             <h3>💻 První programovací jazyky</h3>
-            <p>Na začátku počítače rozuměly jen jednoduchým číslům. Programátoři museli psát složité binární kódy. Postupně ale vznikly první programovací jazyky jako Fortran nebo Assembly, které umožnily psát programy srozumitelnějším způsobem. Díky tomu mohli programovat i lidé, kteří nebyli experty na hardware. Tyto jazyky umožnily rozvoj softwaru a posunuly vývoj technologií kupředu.</p>
+            <p>Zpočátku počítače rozuměly jen binárním kódům, které byly složité na psaní. Postupně vznikly první programovací jazyky jako Fortran a Assembly, které umožnily jednodušší a srozumitelnější programování. Díky tomu se mohl software rychleji rozvíjet a technologie postupovaly vpřed.</p>
             <img src="static/img/Assembly_language_debugging_under_DOS.jpg" alt="assembly" class="card-timeline">
         </div>
     </section>
 
+    <!-- ==================== ВАЖНЫЕ ЛИЧНОСТИ ==================== -->
     <section id="dulezite-osobnosti">
         <h2 class="section-title" data-aos="fade-up">Důležité osobnosti</h2>
         
-        <div class="card" data-aos="fade-right">
-            <h3>🧠 Dennis Ritchie – Tvůrce jazyka C</h3>
-            <img src="static/img/Dennis_Ritchie.jpg" alt="c_programmer_equeal_gigachad" class="card-image">
-            <p>Dennis Ritchie byl tichý hrdina světa IT. Vytvořil programovací jazyk C a pomáhal s vývojem systému Unix, ze kterého vychází Linux a další operační systémy. Bez jeho práce by možná dnešní počítače vůbec nevypadaly tak, jak je známe. Mnoho moderních jazyků je postaveno právě na C.</p>
-        </div>
-        <div class="card" data-aos="fade-left">
-            <h3>🖥️ John von Neumann</h3>
-            <img src="static/img/John-von-Neumann.jpg" alt="pc_architectire" class="card-image">
-            <p>Von Neumann byl geniální mozek 20. století. Navrhl architekturu počítače, kterou používáme dodnes – rozdělení na paměť, procesor a vstupně-výstupní zařízení. Bez něj by počítače vůbec nemusely fungovat tak, jak je známe. Jeho myšlenky ovlivnily nejen informatiku, ale i fyziku a ekonomii.</p>
-        </div>
-        <div class="card" data-aos="fade-right">
-            <h3>⌨️ Bill Gates</h3>
-            <img src="static/img/HUILO-EBANOE.png" alt="windows_is_shit" class="card-image">
-            <p>Bill Gates je známý jako spoluzakladatel Microsoftu, ale hlavně za to, že přinesl počítače do domácností. Pomohl vytvořit operační systém Windows, který zpřístupnil technologii milionům lidí. Kromě toho je i významný filantrop – po ukončení své kariéry se věnuje charitě a řešení globálních problémů.</p>
-        </div>
-        <div class="card" data-aos="fade-right">
-            <h3>🕸️ Tim Berners-Lee</h3>
-            <img src="static/img/Tim_Berners-Lee.jpg" alt="www" class="card-image">
-            <p>Tim doslova změnil svět. Ne tím, že vynalezl internet, ale tím, že vymyslel World Wide Web – tedy webové stránky, prohlížeče a odkazy, které každý den používáme. Díky němu můžeš dnes brouzdat na internetu, dělat webové stránky a být online s celým světem.</p>
-        </div>
-        <div class="card" data-aos="fade-left">
-            <h3>🐧 Linus Torvalds</h3>
-            <img src="static/img/Linus_Torvalds.jpeg" alt="i_use_arch_btw" class="card-image">
-            <p>Linus je opravdová legenda v IT světě. Vytvořil operační systém Linux, který dnes běží na milionech serverů, chytrých telefonů a dokonce i superpočítačů. A to začal jako student! Kromě toho vytvořil také Git, bez kterého si dnes vývoj software nedokážeme představit. Jeho práce pomohla postavit základy moderního open-source světa.</p>
-        </div>
-        <section id="fun-facts">
-            <h2>Zajímavosti</h2>
-          
-            <div class="card" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="300">
-              <h3>🕸️ Tim Berners-Lee</h3>
-              <img src="static/img/Tim_Berners-Lee.jpg" alt="www" class="card-image">
-              <ul>
-                <li>V roce 2004 byl povýšen do šlechtického stavu a získal titul „Sir“ za vynález World Wide Webu.</li>
-                <li>Svou první webovou stránku spustil na počítači NeXT od Steva Jobse.</li>
-                <li>Bojuje za otevřený a svobodný internet – je zakladatelem iniciativy „Solid“ a „Web Foundation“.</li>
-              </ul>
+        <div class="cards-grid">
+            <!-- Первая строка -->
+            <div class="card-pers" data-aos="fade-right" data-aos-duration="800">
+                <h3>🧠 Dennis Ritchie – Tvůrce jazyka C</h3>
+                <img src="static/img/Dennis_Ritchie.jpg" alt="Dennis Ritchie" class="card-image">
+                <p>Dennis Ritchie byl tichý hrdina světa IT. Vytvořil programovací jazyk C a pomáhal s vývojem systému Unix, ze kterého vychází Linux a další operační systémy. Bez jeho práce by možná dnešní počítače vůbec nevypadaly tak, jak je známe. Mnoho moderních jazyků je postaveno právě na C.</p>
             </div>
-          
-            <div class="card" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="400">
-              <h3>🐧 Linus Torvalds</h3>
-              <img src="static/img/Linus_Torvalds.jpeg" alt="i_use_arch_btw" class="card-image">
-              <ul>
-                <li>První verzi Linuxu napsal, když mu bylo pouhých 21 let. Projekt začal jako osobní zábava bez úmyslu vytvořit něco velkého nebo komerčního.</li>
-                <li>Nikdy původně neplánoval, že Linux bude populární — napsal ho pro zábavu.</li>
-                <li>Nemá rád řízení auta — raději pracuje z domova v klidném prostředí a vyhýbá se rušným silnicím a dopravnímu stresu.</li>
-              </ul>
-            </div>
-          
-            <div class="card" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="500">
-              <h3>⌨️ Bill Gates</h3>
-              <img src="static/img/HUILO-EBANOE.png" alt="windows_is_shit" class="card-image">
-              <ul>
-                <li>Čte přibližně 50 knih ročně a pravidelně sdílí své oblíbené tituly online.</li>
-                <li>Jeho nadace financovala vývoj vakcín, nových toalet pro rozvojové země a bojuje proti malárii.</li>
-                <li>Je fanouškem klasických videoher — například <i>Minesweeper</i>, kde měl rekordy na firemních počítačích Microsoftu.</li>
-              </ul>
-            </div>
-          
-            <div class="card" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="600">
-              <h3>🖥️ John von Neumann</h3>
-              <img src="static/img/John-von-Neumann.jpg" alt="pc_architectire" class="card-image">
-              <ul>
-                <li>Jako dítě byl považován za zázračné dítě – ve věku 6 let si z hlavy počítal dělení osmiciferných čísel.</li>
-                <li>Spolupracoval na projektu Manhattan (vývoj atomové bomby).</li>
-                <li>Vymyslel koncept <strong>samoreprodukujících strojů</strong>, což ovlivnilo i vývoj v oblasti genetiky a umělé inteligence.</li>
-              </ul>
-            </div>
-          
-            <div class="card" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="700">
-              <h3>🧠 Dennis Ritchie</h3>
-              <img src="static/img/Dennis_Ritchie.jpg" alt="c_programmer_equeal_gigachad" class="card-image">
-              <ul>
-                <li>Vytvořil jazyk C a spoluvytvářel Unix — ale většina lidí zná spíše Stevea Jobse nebo Billa Gatese.</li>
-                <li>Když zemřel, média mu věnovala méně pozornosti, protože to bylo krátce po smrti Steva Jobse.</li>
-                <li>Bez jeho práce by dnes neexistovaly systémy jako Windows, macOS, Linux, Android a mnoho dalších.</li>
-              </ul>
-            </div>
-          
-          </section>
             
+            <div class="card-pers" data-aos="fade-left" data-aos-duration="800">
+                <h3>🖥️ John von Neumann</h3>
+                <img src="static/img/John-von-Neumann.jpg" alt="John von Neumann" class="card-image">    
+                <p>Von Neumann byl geniální mozek 20. století. Navrhl architekturu počítače, kterou používáme dodnes – rozdělení na paměť, procesor a vstupně-výstupní zařízení. Bez něj by počítače vůbec nemusely fungovat tak, jak je známe. Jeho myšlenky ovlivnily nejen informatiku, ale i fyziku a ekonomii.</p>
+            </div>
+            
+            <!-- Вторая строка -->
+            <div class="card-pers" data-aos="fade-right" data-aos-duration="800" data-aos-delay="200">
+                <h3>⌨️ Bill Gates</h3>
+                <img src="static/img/HUILO-EBANOE.png" alt="Bill Gates" class="card-image">
+                <p>Bill Gates je známý jako spoluzakladatel Microsoftu, ale hlavně za to, že přinesl počítače do domácností. Pomohl vytvořit operační systém Windows, který zpřístupnil technologii milionům lidí. Kromě toho je i významný filantrop – po ukončení své kariéry se věnuje charitě a řešení globálních problémů.</p>
+            </div>
+            
+            <div class="card-pers" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
+                <h3>🕸️ Tim Berners-Lee</h3>
+                <img src="static/img/Tim_Berners-Lee.jpg" alt="Tim Berners-Lee" class="card-image">
+                <p>Tim změnil svět. Ne tím, že vynalezl internet, ale tím, že vymyslel World Wide Web – tedy webové stránky, prohlížeče a odkazy, které každý den používáme. Díky němu můžeš dnes brouzdat na internetu, dělat webové stránky a být online s celým světem.</p>
+            </div>
+            
+            <!-- Центральная карточка -->
+            <div class="center-card">
+                <div class="card-pers" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
+                    <h3>🐧 Linus Torvalds</h3>
+                    <img src="static/img/Linus_Torvalds.jpeg" alt="Linus Torvalds" class="card-image">
+                    <p>Linus je opravdová legenda v IT světě. Vytvořil operační systém Linux, který dnes běží na milionech serverů, chytrých telefonů a dokonce i superpočítačů. A to začal jako student! Kromě toho vytvořil také Git, bez kterého si dnes vývoj software nedokážeme představit. Jeho práce pomohla postavit základy moderního open-source světa.</p>
+                </div>    
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ИНТЕРЕСНЫЕ ФАКТЫ ==================== -->
+    <section id="fun-facts">
+        <h2 class="section-title" data-aos="fade-up">Zajímavosti</h2>
+        
+        <div class="cards-grid">
+            <!-- Факты о Tim Berners-Lee -->
+            <div class="card-pers" data-aos="fade-right" data-aos-duration="800" data-aos-delay="200">
+                <h3>🕸️ Tim Berners-Lee</h3>
+                <img src="static/img/Tim_Berners-Lee.jpg" alt="www" class="card-image">
+                <ul>
+                    <li>V roce 2004 byl povýšen do šlechtického stavu a získal titul „Sir“ za vynález World Wide Webu.</li>
+                    <li>Svou první webovou stránku spustil na počítači NeXT od Steva Jobse.</li>
+                    <li>Bojuje za otevřený a svobodný internet – je zakladatelem iniciativy „Solid“ a „Web Foundation“.</li>
+                </ul>
+            </div>
+            
+            <!-- Факты о Linus Torvalds -->
+            <div class="card-pers" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
+                <h3>🐧 Linus Torvalds</h3>
+                <img src="static/img/Linus_Torvalds.jpeg" alt="i_use_arch_btw" class="card-image">
+                <ul>
+                    <li>První verzi Linuxu napsal, když mu bylo pouhých 21 let. Projekt začal jako osobní zábava bez úmyslu vytvořit něco velkého nebo komerčního.</li>
+                    <li>Nikdy původně neplánoval, že Linux bude populární — napsal ho pro zábavu.</li>
+                    <li>Nemá rád řízení auta — raději pracuje z domova v klidném prostředí a vyhýbá se rušným silnicím a dopravnímu stresu.</li>
+                </ul>
+            </div>
+            
+            <!-- Факты о Bill Gates -->
+            <div class="card-pers" data-aos="fade-right" data-aos-duration="800" data-aos-delay="200">
+                <h3>⌨️ Bill Gates</h3>
+                <img src="static/img/HUILO-EBANOE.png" alt="windows_is_shit" class="card-image">
+                <ul>
+                    <li>Čte přibližně 50 knih ročně a pravidelně sdílí své oblíbené tituly online.</li>
+                    <li>Jeho nadace financovala vývoj vakcín, nových toalet pro rozvojové země a bojuje proti malárii.</li>
+                    <li>Je fanouškem klasických videoher — například Minesweeper, kde měl rekordy na firemních počítačích Microsoftu.</li>
+                </ul>
+            </div>
+            
+            <!-- Факты о John von Neumann -->
+            <div class="card-pers" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
+                <h3>🖥️ John von Neumann</h3>
+                <img src="static/img/John-von-Neumann.jpg" alt="pc_architectire" class="card-image">
+                <ul>
+                    <li>Jako dítě byl považován za zázračné dítě – ve věku 6 let si z hlavy počítal dělení osmiciferných čísel.</li>
+                    <li>Spolupracoval na projektu Manhattan (vývoj atomové bomby).</li>
+                    <li>Vymyslel koncept samoreprodukujících strojů, což ovlivnilo i vývoj v oblasti genetiky a umělé inteligence.</li>
+                </ul>
+            </div>
+            
+            <!-- Центральная карточка: Dennis Ritchie -->
+            <div class="center-card">
+                <div class="card-pers" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="1000">
+                    <h3>🧠 Dennis Ritchie</h3>
+                    <img src="static/img/Dennis_Ritchie.jpg" alt="c_programmer_equeal_gigachad" class="card-image">
+                    <ul>
+                        <li>Vytvořil programovací jazyk C a spoluvytvářel operační systém Unix.</li>
+                        <li>Za svůj přínos získal Dennis Ritchie prestižní Turingovu cenu</li>
+                        <li>Bez jeho práce by dnes neexistovaly systémy jako Windows...</li>
+                    </ul>
+                </div>
+            </div>  
+        </div>
+    </section>
+
+    <!-- ==================== БУДУЩЕЕ ==================== -->
     <section id="budoucnost">
         <h2 class="section-title" data-aos="fade-up">Současnost a budoucnost</h2>
 
-    <div class="cards-container">
+        <!-- VR -->
         <div class="card" data-aos="fade-up">
             <h3>🕶️ Virtuální realita</h3>
-            <p>Virtuální realita je technologie, která dokáže přenést člověka do úplně jiného světa – digitálního, ale velmi realistického. Stačí si nasadit VR brýle a rázem se ocitnete v podmořském světě, na Měsíci nebo ve virtuální třídě. VR se dnes používá nejen pro zábavu, ale také ve vzdělávání, simulacích nebo lékařství. Je to brána do nových zážitků, které by jinak nebyly možné.</p>
+            <p>Virtuální realita umožňuje ponořit se do digitálních světů, které jsou velmi realistické. Používá se nejen pro zábavu, ale také ve vzdělávání, simulacích a lékařství. Pomáhá vytvářet nové zážitky, které by jinak nebyly možné.</p>
         </div>
+        
+        <!-- AI -->
         <div class="card" data-aos="fade-up">
             <h3>🤖 Umělá inteligence</h3>
-            <p>Umělá inteligence se snaží vytvořit programy a stroje, které umí přemýšlet podobně jako lidé. Učí se z dat, rozhodují se samy a pomáhají v mnoha oblastech – třeba doporučují videa na YouTube, pomáhají lékařům diagnostikovat nemoci, nebo řídí samořiditelné vozy. AI se neustále zlepšuje a v budoucnu bude hrát ještě větší roli v našem každodenním životě.</p>
+            <p>Umělá inteligence se zaměřuje na vývoj strojů, které umí přemýšlet a rozhodovat se podobně jako lidé. Učí se z dat a má široké využití, například při diagnostice nemocí, řízení autonomních vozidel nebo doporučování obsahu na internetu.</p>
         </div>
+        
+        <!-- Квантовые компьютеры -->
         <div class="card" data-aos="fade-up">
             <h3>⚛️ Kvantové počítače</h3>
-            <p>Kvantové počítače nejsou jako běžné notebooky nebo stolní počítače. Fungují podle zákonů kvantové fyziky, což jim umožňuje počítat neuvěřitelně rychle a řešit úkoly, které by klasickým počítačům trvaly tisíce let. Jsou zatím ve fázi výzkumu, ale vědci věří, že v budoucnu pomohou například v lékařství, vědě nebo bezpečnosti.</p>
+            <p>Kvantové počítače využívají zákony kvantové fyziky, což jim umožňuje řešit úkoly, které by běžným počítačům trvaly tisíce let. Jsou stále ve fázi výzkumu, ale mohou významně přispět v oblastech jako medicína, věda nebo kybernetická bezpečnost.</p>
         </div>
+        
+        <!-- Общее будущее -->
         <div class="card" data-aos="fade-up">
             <h3>🚀 Budoucnost technologií</h3>
-            <p>Technologie se neustále vyvíjejí – to, co dnes vypadá jako sci-fi, může být za pár let realitou. Umělá inteligence bude chytřejší, kvantové počítače výkonnější a virtuální realita realističtější. Budeme mít chytřejší města, roboty jako pomocníky a možná úplně nové způsoby, jak se učit, pracovat i komunikovat. Budoucnost je plná možností – a právě ICT bude hrát klíčovou roli.</p>
+            <p>Technologie se neustále vyvíjejí, a to, co dnes vypadá jako sci-fi, se může stát realitou. VR bude realističtější, AI chytřejší a kvantové počítače výkonnější. Budoucnost přinese nové způsoby, jak se učit, pracovat a komunikovat, a ICT bude hrát v tomto vývoji klíčovou roli.</p>
         </div>
-    </div>
-</section>
+    </section>
 
-<p class="project-end-description" data-aos="fade-down" data-aos-delay="300"> Děkujeme za pozornost!!!</p>
-<img src="static/img/pidor.jpg" alt="GOAT" class="denisz_king">
+    <!-- ==================== ФУТЕР ==================== -->
+    <p class="project-end-description" data-aos="fade-down" data-aos-delay="300"> Děkujeme za pozornost!!!</p>
+    <img src="static/img/pidor.jpg" alt="GOAT" class="denisz_king">
 
-<footer>
-  <p>© 2025 Vývoj ICT — Kyrylo Buryk, Denisz Sztojka, IT1</p>
-</footer>
-
+    <footer>
+        <p>© 2025 Vývoj ICT — Kyrylo Buryk, Denisz Sztojka, IT1</p>
+    </footer>
 </body>
 </html>

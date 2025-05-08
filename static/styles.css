@@ -184,7 +184,7 @@ header p {
 .section-title {
     font-size: 2.5rem;
     text-align: center;
-    opacity: 0;
+    opacity: 1;
     transform: translateY(20px);
     transition: opacity 1s ease-out, filter 1s ease-out, transform 1s ease-out;
 }
@@ -340,27 +340,43 @@ header p {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-/* Контейнеры */
-.container {
-    max-width: 85%;
-    margin: 0 auto;
-}
-
-.cards-container {
-    display: flex;
-    flex-direction: column;
+/* Контейнер для карточек */
+.cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 30px;
-    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-#dulezite-osobnosti {
+/* Центральная карточка */
+.center-card {
+    grid-column: span 2;
+    justify-content: center;
+}
+
+/* Стиль карточки */
+.card-pers {
+    background: rgba(10, 30, 10, 0.9);
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid rgba(0, 255, 100, 0.3);
+    box-shadow: 0 0 20px rgba(0, 255, 100, 0.2);
+    max-width: 450px;
+    margin: 0 auto;
+    will-change: transform, opacity;
+}
+
+
+/* #dulezite-osobnosti {
     padding: 50px 20px;
     text-align: center;
     background: rgba(0, 20, 0, 0.3);
     border-radius: 15px;
     margin: 40px 0;
     border: 1px solid rgba(0, 255, 100, 0.2);
-}
+} */
 .project-end-description {
     text-align: center;
     font-size: 75px;
