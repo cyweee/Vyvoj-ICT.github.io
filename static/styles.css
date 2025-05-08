@@ -459,6 +459,11 @@ header p {
     will-change: transform, opacity;
 }
 
+.card, .card-pers {
+    scroll-margin-top: 80px; /* Отступ сверху при скролле */
+    transition: transform 0.3s ease;
+}
+
 /* Стиль для подсказки */
 .key-hint {
     position: fixed;
@@ -491,17 +496,19 @@ header p {
     font-family: 'Courier New', monospace;
     font-size: 14px;
     padding: 8px 12px;
+    background: rgba(0, 30, 0, 0.7);
+    border: 1px solid #00ff88;
+    border-radius: 4px;
+    box-shadow: 0 0 15px rgba(0, 255, 100, 0.3);
     opacity: 0;
-    transition: opacity 0.5s ease, transform 0.2s ease;
+    transition: all 0.3s ease;
     z-index: 1000;
     backdrop-filter: blur(2px);
-    animation: pulse 2s infinite;
 }
-
 .nav-indicator span {
     color: #fff;
     font-weight: bold;
-    text-shadow: 0 0 5px #00ff88;
+    margin-left: 5px;
 }
 
 /* Анимация пульсации */
@@ -511,43 +518,46 @@ header p {
     100% { opacity: 0.8; }
 }
 
-/* Подсветка текущей карточки */
+/* Подсветка карточки */
 .card-highlight {
-    animation: highlight-pulse 1.5s ease;
-    box-shadow: 0 0 30px rgba(0, 255, 100, 0.7) !important;
+    animation: highlight 1.5s ease infinite alternate;
+    position: relative;
+    z-index: 10;
 }
 
-@keyframes highlight-pulse {
-    0% { box-shadow: 0 0 15px rgba(0, 255, 100, 0.3); }
-    50% { box-shadow: 0 0 40px rgba(0, 255, 100, 0.9); }
-    100% { box-shadow: 0 0 15px rgba(0, 255, 100, 0.3); }
+@keyframes highlight {
+    from { 
+        box-shadow: 0 0 10px rgba(0, 255, 100, 0.3);
+        transform: scale(1);
+    }
+    to { 
+        box-shadow: 0 0 30px rgba(0, 255, 100, 0.7);
+        transform: scale(1.01);
+    }
 }
-
-/* Подсветка текущей карточки */
-.card-highlight {
-    animation: highlight-pulse 1.5s ease;
-    box-shadow: 0 0 30px rgba(0, 255, 100, 0.7) !important;
-}
-
-@keyframes highlight-pulse {
-    0% { box-shadow: 0 0 15px rgba(0, 255, 100, 0.3); }
-    50% { box-shadow: 0 0 40px rgba(0, 255, 100, 0.9); }
-    100% { box-shadow: 0 0 15px rgba(0, 255, 100, 0.3); }
-}
-.project-end-description {
+/* Стили для финального заголовка */
+.project-end-title {
+    font-size: 4rem;
     text-align: center;
-    font-size: 75px;
-    margin-top: 300px;
-    margin-bottom: 50px;
+    margin: 150px auto;
+    padding: 0 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    color: #00ff88;
+    text-shadow: 0 0 20px rgba(0, 255, 100, 0.5);
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 800px;
 }
 
-.denisz_king {
-    width: 550px;
-    height: 450px;
-    object-fit: contain;
-    display: block;
-    margin: 0 auto;
+.project-end-title.show {
+    opacity: 1;
+    transform: translateY(0);
 }
+
+
 
 footer {
     margin-top: auto;

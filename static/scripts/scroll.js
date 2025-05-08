@@ -3,12 +3,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let isEnabled = false;
     const cardSelectors = ['.card', '.card-pers'];
     let navIndicator = null;
+    let currentCardIndex = -1;
+    let autoScrollEnabled = false;
 
     // Создаем индикатор навигации
     function createNavIndicator() {
         const indicator = document.createElement('div');
         indicator.className = 'nav-indicator';
-        indicator.innerHTML = '⯆ <span>SPACE</span>:  Další kartička';
+        indicator.innerHTML = '⯆ <span>SPACE</span>: Další kartička';
         document.body.appendChild(indicator);
         return indicator;
     }
@@ -23,30 +25,46 @@ document.addEventListener('DOMContentLoaded', () => {
         window.removeEventListener('scroll', enableSystem);
     };
 
-    setTimeout(enableSystem, 3000);
-    window.addEventListener('scroll', enableSystem, { once: true });
+    // Точный скролл к карточке с полным отображением
+    function preciseScrollTo(element) {
+        const windowHeight = window.innerHeight;
+        const elementRect = element.getBoundingClientRect();
+        const elementHeight = elementRect.height;
+        
+        // Рассчитываем позицию для полного отображения карточки
+        let scrollPosition;
+        
+        if (elementHeight < windowHeight) {
+            // Если карточка меньше высоты окна - центрируем
+            scrollPosition = window.pageYOffset + elementRect.top - (windowHeight - elementHeight) / 2;
+        } else {
+            // Если карточка больше - показываем начало
+            scrollPosition = window.pageYOffset + elementRect.top;
+        }
+        
+        // Плавный скролл с кастомной анимацией
+        const startPosition = window.pageYOffset;
+        const distance = scrollPosition - startPosition;
+        const duration = Math.min(800, Math.max(300, Math.abs(distance) * 0.5));
+        let startTime = null;
 
-    // Плавный скролл к элементу
-    function smoothScrollTo(target) {
-        const element = typeof target === 'string' 
-            ? document.querySelector(target) 
-            : target;
-        
-        if (!element) return;
-        
-        const headerHeight = document.querySelector('header')?.offsetHeight || 0;
-        const scrollPosition = element.offsetTop - Math.min(headerHeight, 100);
-        
-        window.scrollTo({
-            top: scrollPosition,
-            behavior: 'smooth'
-        });
+        function animation(currentTime) {
+            if (startTime === null) startTime = currentTime;
+            const timeElapsed = currentTime - startTime;
+            const progress = Math.min(timeElapsed / duration, 1);
+            const easeProgress = easeOutQuad(progress);
+            window.scrollTo(0, startPosition + distance * easeProgress);
+            
+            if (timeElapsed < duration) {
+                requestAnimationFrame(animation);
+            }
+        }
 
-        // Подсветка текущей карточки
-        document.querySelectorAll('.card-highlight').forEach(el => {
-            el.classList.remove('card-highlight');
-        });
-        element.classList.add('card-highlight');
+        requestAnimationFrame(animation);
+    }
+
+    function easeOutQuad(t) {
+        return t * (2 - t);
     }
 
     // Получаем все карточки
@@ -62,30 +80,50 @@ document.addEventListener('DOMContentLoaded', () => {
         const cards = getAllCards();
         if (cards.length === 0) return;
         
-        const currentScroll = window.scrollY + (window.innerHeight / 3);
-        let nextCard = null;
-
-        for (const card of cards) {
-            if (card.offsetTop > currentScroll) {
-                nextCard = card;
-                break;
-            }
+        if (currentCardIndex === -1) {
+            currentCardIndex = 0;
+        } else {
+            currentCardIndex = (currentCardIndex + 1) % cards.length;
         }
 
-        if (!nextCard && cards.length > 0) {
-            nextCard = cards[0];
-        }
-
+        const nextCard = cards[currentCardIndex];
+        
         if (nextCard) {
-            smoothScrollTo(nextCard);
+            preciseScrollTo(nextCard);
             
-            // Анимация индикатора при переключении
+            document.querySelectorAll('.card-highlight').forEach(el => {
+                el.classList.remove('card-highlight');
+            });
+            nextCard.classList.add('card-highlight');
+            
             if (navIndicator) {
                 navIndicator.style.transform = 'translateY(-5px)';
                 setTimeout(() => {
                     navIndicator.style.transform = 'translateY(0)';
                 }, 200);
             }
+        }
+    }
+
+    // Настройка автоскролла к финальному сообщению
+    function setupAutoScroll() {
+        const cards = getAllCards();
+        const lastCard = cards[cards.length - 1];
+        const endMessage = document.querySelector('h1.project-end-title');
+
+        if (lastCard && endMessage) {
+            const observer = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting && !autoScrollEnabled) {
+                    autoScrollEnabled = true;
+                    
+                    setTimeout(() => {
+                        preciseScrollTo(endMessage);
+                        endMessage.classList.add('show');
+                    }, 20000);
+                }
+            }, { threshold: 0.7 });
+
+            observer.observe(lastCard);
         }
     }
 
@@ -96,6 +134,12 @@ document.addEventListener('DOMContentLoaded', () => {
             scrollToNextCard();
         }
     });
+
+    // Инициализация с задержкой
+    setTimeout(() => {
+        enableSystem();
+        setupAutoScroll();
+    }, 1500);
 
     // Инициализация AOS
     if (typeof AOS !== 'undefined') {
